@@ -34,6 +34,8 @@ public class LadyBug : Bug
         float timer = 0f;
         Vector2 startPos = transform.position;
 
+        m_anmr.SetBool("isFlying", true); //Transition to "flying" animation
+
         while (timer < m_hoverDuration && !IsBeingHeld)
         {
             timer += Time.deltaTime;
@@ -42,6 +44,8 @@ public class LadyBug : Bug
             yield return null;
         }
         m_rb.gravityScale = originalGravity;
+
+        m_anmr.SetBool("isFlying", false); //Transition to "idle" animation
     }
     #endregion
 }
