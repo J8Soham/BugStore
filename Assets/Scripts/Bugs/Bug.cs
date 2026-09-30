@@ -5,6 +5,7 @@ public class Bug : MonoBehaviour
 
     #region Cached Components
     protected Rigidbody2D m_rb;
+    private HUDController cc_hud;
     private int m_currentTossCount = 0;
     #endregion
 
@@ -33,6 +34,10 @@ public class Bug : MonoBehaviour
     private void Awake() {
         p_isBeingHeld = false;
         m_rb = GetComponent<Rigidbody2D>();
+    }
+    private void Start()
+    {
+        cc_hud = FindAnyObjectByType<HUDController>();
     }
     #endregion 
 
@@ -70,6 +75,7 @@ public class Bug : MonoBehaviour
     private void GraduateBug()
     {
         ScoreManager.singleton.IncreaseScore(m_info.PointValue);
+        cc_hud.UpdateScore();
         Destroy(gameObject);
     }
     #endregion 

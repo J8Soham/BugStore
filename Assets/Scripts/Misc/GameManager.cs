@@ -5,7 +5,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager singleton;
 
-    #region Inspector Variables
+     #region Cached Components
+    private HUDController cc_hud;
+    #endregion
+
+    #region Editor Variables
     [SerializeField] 
     [Tooltip("Number of lives.")]
     private int m_maxLives;
@@ -42,6 +46,10 @@ public class GameManager : MonoBehaviour
         }
         p_currentLives = m_maxLives;
     }
+    private void Start()
+    {
+        cc_hud = FindAnyObjectByType<HUDController>();
+    }
     #endregion
 
     #region Game Over Management
@@ -51,6 +59,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         p_currentLives -= livesToLose;
+        Debug.Log("GM: " + p_currentLives);
+        cc_hud.DisplayLife(p_currentLives);
         if (p_currentLives <= 0)
         {
             TriggerDeath();

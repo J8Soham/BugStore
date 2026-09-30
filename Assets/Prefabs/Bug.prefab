@@ -186,4 +186,4 @@ MonoBehaviour:
     m_launchForce: 10
     m_isHazardous: 0
     m_stunDuration: 0
-    m_damagesOnDrop: 0
+    m_damagesOnDrop: 1
