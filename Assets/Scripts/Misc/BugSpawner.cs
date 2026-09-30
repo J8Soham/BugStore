@@ -16,7 +16,7 @@ public class BugSpawner : MonoBehaviour
     [Tooltip("SpawnY")]
     private float m_spawnY;
     [SerializeField] 
-    [Tooltip("Number of waves (if 0 then infinite)")]
+    [Tooltip("Number of waves.")]
     private WaveInfo m_waves;
     #endregion
 
@@ -53,15 +53,20 @@ public class BugSpawner : MonoBehaviour
         for (int i = 0; i < m_waves.Count; i++)
         {
             p_currentWaveIndex = i;
-            // WaveInfo currentWave = m_waves[i];
-            
-            // for each type of bug if cna include add to a list
-            // SpawnBug(group.BugPrefab);
-            // yield return new WaitForSeconds(currentWave.SpawnInterval);
-        
-            yield return new WaitForSeconds(1.0f);
+            BugGroup[] bugGroup = m_waves.BugGroup;
+            int count = 0;
+            while (count < m_waves.MaxBugs){
+                foreach (BugGroup bug in bugGroup)
+                {
+                    if (bug.FirstSpawnWave <= i) {
+                        count += 1;
+                        SpawnBug(bug.BugPrefab);
+                        yield return new WaitForSeconds(m_waves.IntervalBetweenSpawn);
+                    }
+                }
+            }
+            yield return new WaitForSeconds(10.0f);
         }
-
         p_isSpawningActive = false;
     }
 

@@ -36,7 +36,7 @@ public class Bug : MonoBehaviour
     }
     #endregion 
 
-    #region Catch Mecanhics
+    #region Catch Mecahaics
     public virtual void OnCaught(Hand catchingHand, Transform holdPoint)
     {
         if (m_info.IsHazardous)

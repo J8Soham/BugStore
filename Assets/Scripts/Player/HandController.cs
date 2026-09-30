@@ -50,7 +50,7 @@ public class HandController : MonoBehaviour
     }
     #endregion
 
-    #region Movement &amp; Position Clamping
+    #region Hand Movement Mechanics
     private void UpdateHandPositions()
     {
         Vector3 mouseScreenPos = Input.mousePosition; 
