@@ -1246,17 +1246,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1802953991907392942, guid: 9aae6f6fae983450788ec4bc387e0140, type: 3}
-      propertyPath: m_openHandSprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: 97ab3c6a7b3694166906e1f920ae5816, type: 3}
-    - target: {fileID: 1802953991907392942, guid: 9aae6f6fae983450788ec4bc387e0140, type: 3}
-      propertyPath: m_closedHandSprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: 8ad19f6e34d46474fb32e167aab06afa, type: 3}
     - target: {fileID: 5028809643053076874, guid: 9aae6f6fae983450788ec4bc387e0140, type: 3}
       propertyPath: m_Name
       value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651042730444507805, guid: 9aae6f6fae983450788ec4bc387e0140, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

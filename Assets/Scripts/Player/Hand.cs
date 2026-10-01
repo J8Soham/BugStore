@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Hand : MonoBehaviour
@@ -13,10 +14,12 @@ public class Hand : MonoBehaviour
     #endregion
 
     #region Editor Variables
+    /* Commented out in favor for Animator
     [SerializeField] 
     private Sprite m_openHandSprite;
     [SerializeField] 
     private Sprite m_closedHandSprite;
+    */
     [SerializeField] 
     private Transform m_holdPoint;
     #endregion
@@ -24,9 +27,14 @@ public class Hand : MonoBehaviour
     #region Private Variables
     #endregion
 
+    #region Animation Variables
+    private Animator m_anmr;
+    #endregion
+
     #region Initialization
     private void Awake() {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
+        m_anmr = GetComponent<Animator>(); //For Animation
         SetHandState(false);
         UpdateSprite();
     }
@@ -35,10 +43,13 @@ public class Hand : MonoBehaviour
     #region Grab Mechanics
     public void SetHandState(bool grabbing) {
         IsGrabbing = grabbing;
+        /* Commented out because UpdateSprite() does the same thing
         if (m_spriteRenderer != null)
         {
             m_spriteRenderer.sprite = grabbing ? m_closedHandSprite : m_openHandSprite;
         }
+        */
+        UpdateSprite();
     }
     public void TryGrab()
     {
@@ -87,10 +98,13 @@ public class Hand : MonoBehaviour
     #region Helpers
     private void UpdateSprite()
     {
+        /* Commented out in favor for Animator
         if (m_spriteRenderer != null)
         {
             m_spriteRenderer.sprite = IsGrabbing ? m_closedHandSprite : m_openHandSprite;
         }
+        */
+        m_anmr.SetBool("isGrabbing",IsGrabbing);
     }
     #endregion
 
