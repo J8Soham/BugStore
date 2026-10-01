@@ -51,7 +51,7 @@ public class Bug : MonoBehaviour
     {
         if (m_info.IsHazardous)
         {
-            catchingHand.StunHand(2.0f);
+            catchingHand.StunHand(m_info.StunDuration);
             return;
         }
         p_isBeingHeld = true;

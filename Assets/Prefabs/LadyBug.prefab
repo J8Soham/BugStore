@@ -182,8 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LadyBug
   m_info:
     m_bugName: LadyBug
-    m_maxTosses: 4
-    m_pointValue: 5
+    m_maxTosses: 2
+    m_pointValue: 3
     m_launchForce: 15
     m_isHazardous: 0
     m_stunDuration: 0

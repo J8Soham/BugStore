@@ -183,11 +183,11 @@ MonoBehaviour:
   m_info:
     m_bugName: Larva
     m_maxTosses: 3
-    m_pointValue: 3
+    m_pointValue: 5
     m_launchForce: 10
     m_isHazardous: 0
     m_stunDuration: 0
-    m_damagesOnDrop: 0
+    m_damagesOnDrop: 1
 --- !u!95 &7311343320982398995
 Animator:
   serializedVersion: 7

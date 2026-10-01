@@ -111,6 +111,7 @@ public class Hand : MonoBehaviour
     #region Stun Mechanics
     public void StunHand(float duration)
     {
+        Debug.Log("Stun Works: " + duration);
         if (!IsStunned)
         {
             StartCoroutine(StunRoutine(duration));

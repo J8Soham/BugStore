@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
             return;
         }
         p_currentLives -= livesToLose;
-        Debug.Log("GM: " + p_currentLives);
         cc_hud.DisplayLife(p_currentLives);
         if (p_currentLives <= 0)
         {
