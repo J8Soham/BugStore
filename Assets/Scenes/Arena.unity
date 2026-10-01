@@ -166,8 +166,8 @@ MonoBehaviour:
   m_leftHand: {fileID: 1565319648}
   m_rightHand: {fileID: 1222369331}
   m_handOffset: 1.5
-  m_screenMinX: -9
-  m_screenMaxX: 9
+  m_screenMinX: -8
+  m_screenMaxX: 8
   m_minY: -4.5
   m_maxY: -2
   m_leftHandMaxX: 5
@@ -1246,17 +1246,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1802953991907392942, guid: 9aae6f6fae983450788ec4bc387e0140, type: 3}
-      propertyPath: m_openHandSprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: 97ab3c6a7b3694166906e1f920ae5816, type: 3}
-    - target: {fileID: 1802953991907392942, guid: 9aae6f6fae983450788ec4bc387e0140, type: 3}
-      propertyPath: m_closedHandSprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: 8ad19f6e34d46474fb32e167aab06afa, type: 3}
     - target: {fileID: 5028809643053076874, guid: 9aae6f6fae983450788ec4bc387e0140, type: 3}
       propertyPath: m_Name
       value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651042730444507805, guid: 9aae6f6fae983450788ec4bc387e0140, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1386,13 +1382,16 @@ MonoBehaviour:
   m_maxSpawnX: 7
   m_spawnY: 10
   m_waves:
-    m_count: 1
+    m_count: 2
     m_bugGroup:
     - m_bugName: Larva
       m_bugGO: {fileID: 2900479410593487584, guid: 440591f4a0c904db2adfb6c11baf5d3a, type: 3}
       m_firstSpawnWave: 0
     - m_bugName: LadyBug
       m_bugGO: {fileID: 2900479410593487584, guid: caa43e72cde144034ac98137fd8b6cae, type: 3}
+      m_firstSpawnWave: 0
+    - m_bugName: Cricket
+      m_bugGO: {fileID: 2900479410593487584, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
       m_firstSpawnWave: 0
     m_intervalBetweenSpawn: 4
     m_maxBugs: 5

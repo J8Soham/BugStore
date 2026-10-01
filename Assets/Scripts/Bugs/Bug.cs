@@ -30,10 +30,15 @@ public class Bug : MonoBehaviour
     }
     #endregion
 
+    #region Animation Variables
+    protected Animator m_anmr;
+    #endregion
+
     #region Initialization
     private void Awake() {
         p_isBeingHeld = false;
         m_rb = GetComponent<Rigidbody2D>();
+        m_anmr = GetComponent<Animator>(); //For Animation
     }
     private void Start()
     {

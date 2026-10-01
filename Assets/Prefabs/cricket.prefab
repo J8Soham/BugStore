@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6191603868873904906}
   - component: {fileID: 7311343320982398995}
   m_Layer: 0
-  m_Name: Bug
+  m_Name: cricket
   m_TagString: Bug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1526111649537815662, guid: 625f993e789a6794bb325814b52f2fbf, type: 3}
+  m_Sprite: {fileID: -597684782313334396, guid: 9e344c43795b3a64a99b091364a044a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,7 +133,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1.4603374, y: 1.94}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -185,8 +185,8 @@ MonoBehaviour:
     m_maxTosses: 3
     m_pointValue: 3
     m_launchForce: 10
-    m_isHazardous: 0
-    m_stunDuration: 0
+    m_isHazardous: 1
+    m_stunDuration: 2
     m_damagesOnDrop: 0
 --- !u!95 &7311343320982398995
 Animator:
