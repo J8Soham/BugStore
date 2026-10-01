@@ -5,6 +5,7 @@ public class Bug : MonoBehaviour
 
     #region Cached Components
     protected Rigidbody2D m_rb;
+    private HUDController cc_hud;
     private int m_currentTossCount = 0;
     #endregion
 
@@ -39,9 +40,13 @@ public class Bug : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_anmr = GetComponent<Animator>(); //For Animation
     }
+    private void Start()
+    {
+        cc_hud = FindAnyObjectByType<HUDController>();
+    }
     #endregion 
 
-    #region Catch Mecanhics
+    #region Catch Mecahaics
     public virtual void OnCaught(Hand catchingHand, Transform holdPoint)
     {
         if (m_info.IsHazardous)
@@ -75,6 +80,7 @@ public class Bug : MonoBehaviour
     private void GraduateBug()
     {
         ScoreManager.singleton.IncreaseScore(m_info.PointValue);
+        cc_hud.UpdateScore();
         Destroy(gameObject);
     }
     #endregion 

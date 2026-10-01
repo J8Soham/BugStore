@@ -29,9 +29,10 @@ public class LadyBug : Bug
     {
         yield return new WaitForSeconds(0.5f);
         float originalGravity = m_rb.gravityScale;
-        
         m_rb.gravityScale = 0.1f;
+
         float timer = 0f;
+        float randomPhase = Random.Range(0f, 6);
         Vector2 startPos = transform.position;
 
         m_anmr.SetBool("isFlying", true); //Transition to "flying" animation
@@ -39,7 +40,7 @@ public class LadyBug : Bug
         while (timer < m_hoverDuration && !IsBeingHeld)
         {
             timer += Time.deltaTime;
-            float offsetX = Mathf.Sin(timer * m_hoverSpeed) * m_hoverWidth;
+            float offsetX = Mathf.Sin(timer * m_hoverSpeed + randomPhase) * m_hoverWidth;
             m_rb.linearVelocity = new Vector2(offsetX, m_rb.linearVelocity.y * 0.5f);
             yield return null;
         }
