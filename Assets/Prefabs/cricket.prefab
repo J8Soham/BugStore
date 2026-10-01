@@ -186,7 +186,7 @@ MonoBehaviour:
     m_pointValue: 3
     m_launchForce: 10
     m_isHazardous: 1
-    m_stunDuration: 2
+    m_stunDuration: 10000
     m_damagesOnDrop: 0
 --- !u!95 &7311343320982398995
 Animator:
@@ -196,7 +196,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2900479410593487584}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b3b4b123cb94c7a4696d61e799acda77, type: 2}
   m_CullingMode: 0
