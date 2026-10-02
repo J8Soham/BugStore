@@ -29,6 +29,19 @@ public class Hand : MonoBehaviour
 
     #region Animation Variables
     private Animator m_anmr;
+
+    [SerializeField]
+    [Tooltip("Play this sound when hurt")]
+    private AudioClip m_audioOuch;
+
+    [SerializeField]
+    [Tooltip("Play this sound when grabbing")]
+    private AudioClip m_audioGrab;
+
+    [SerializeField]
+    [Tooltip("Play this sound when releasing")]
+    private AudioClip m_audioRelease;
+
     #endregion
 
     #region Initialization
@@ -56,12 +69,14 @@ public class Hand : MonoBehaviour
         if (IsStunned) return;
 
         IsGrabbing = true;
+        SFXManager.Instance.PlaySoundClip(m_audioGrab, transform.position, 0.1f);
         UpdateSprite();
     }
 
     public void Release()
     {
         IsGrabbing = false;
+        SFXManager.Instance.PlaySoundClip(m_audioRelease, transform.position, 0.1f);
         UpdateSprite();
 
         if (m_heldBug != null)
@@ -105,6 +120,7 @@ public class Hand : MonoBehaviour
         }
         */
         m_anmr.SetBool("isGrabbing",IsGrabbing);
+        m_anmr.SetBool("isStunned",IsStunned);
     }
     #endregion
 
@@ -121,15 +137,22 @@ public class Hand : MonoBehaviour
     private IEnumerator StunRoutine(float duration)
     {
         IsStunned = true;
+        SFXManager.Instance.PlaySoundClip(m_audioOuch, transform.position, 0.1f);
+        UpdateSprite();
+        /* Commented out in favor for Animator
         if (m_renderer != null) {
             m_renderer.material.color = Color.red;
         }
+        */
 
         yield return new WaitForSeconds(duration);
         IsStunned = false;
+        UpdateSprite();
+        /* Commented out in favor for Animator
         if (m_renderer != null) {
             m_renderer.material.color = Color.white;
         }
+        */
     }
     #endregion
 

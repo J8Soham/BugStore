@@ -186,7 +186,7 @@ MonoBehaviour:
     m_pointValue: 3
     m_launchForce: 10
     m_isHazardous: 1
-    m_stunDuration: 10000
+    m_stunDuration: 3
     m_damagesOnDrop: 0
 --- !u!95 &7311343320982398995
 Animator:

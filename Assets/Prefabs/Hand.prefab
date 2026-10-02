@@ -133,7 +133,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.59375, y: 1.15625}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -181,6 +181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hand
   m_holdPoint: {fileID: 0}
+  m_audioOuch: {fileID: 8300000, guid: dcfd2a1fb1aa20b41ae43ccc1d3b95c5, type: 3}
+  m_audioGrab: {fileID: 8300000, guid: 9df8e1d89d10f5443a1459dc795eed7a, type: 3}
+  m_audioRelease: {fileID: 8300000, guid: 2bb58759c45a49543bb3f1bc3141f991, type: 3}
 --- !u!95 &3957432327460978646
 Animator:
   serializedVersion: 7
