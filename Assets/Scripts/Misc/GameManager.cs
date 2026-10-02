@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour
     private void TriggerDeath()
     {
         p_isGameOver = true;
-        // SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
     #endregion
 }

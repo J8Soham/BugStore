@@ -21,6 +21,7 @@ public class BugSpawner : MonoBehaviour
     #endregion
 
     #region Private Variables 
+    private HUDController cc_hud;
     private int p_currentWaveIndex;
     private bool p_isSpawningActive;
     #endregion
@@ -43,6 +44,7 @@ public class BugSpawner : MonoBehaviour
     private void Start()
     {
         p_isSpawningActive = true;
+        cc_hud = FindAnyObjectByType<HUDController>();
         StartCoroutine(WaveLoopRoutine()); 
     }
     #endregion
@@ -53,6 +55,8 @@ public class BugSpawner : MonoBehaviour
         for (int i = 0; i < m_waves.Count; i++)
         {
             p_currentWaveIndex = i;
+            Debug.Log(p_currentWaveIndex + " : " + i + " : " + m_waves.Count);
+            cc_hud.UpdateWave((p_currentWaveIndex + 1));
             BugGroup[] bugGroup = m_waves.BugGroup;
             int count = 0;
             while (count < m_waves.MaxBugs){
@@ -65,7 +69,7 @@ public class BugSpawner : MonoBehaviour
                     }
                 }
             }
-            yield return new WaitForSeconds(10.0f);
+            yield return new WaitForSeconds((m_waves.IntervalBetweenSpawn * 2));
         }
         p_isSpawningActive = false;
     }
