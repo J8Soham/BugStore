@@ -13,6 +13,9 @@ public class SFXManager : MonoBehaviour
     [SerializeField]
     [Tooltip("Template Prefab SFX Object")]
     private AudioSource sfxObject;
+    [SerializeField]
+    [Tooltip("Global volume")]
+    private float globalVolume = 1f;
     #endregion
 
     void Awake()
@@ -37,7 +40,7 @@ public class SFXManager : MonoBehaviour
         //Pass audio clip and volume to SFX object
         audioSource.clip = audioClip;
         clipLength = audioClip.length;
-        audioSource.volume = volume;
+        audioSource.volume = volume*globalVolume;
 
         audioSource.Play();
 
