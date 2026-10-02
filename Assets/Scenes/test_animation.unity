@@ -440,30 +440,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1807774624150302064, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1807774624150302064, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2900479410593487584, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
       propertyPath: m_Name
       value: cricket
       objectReference: {fileID: 0}
-    - target: {fileID: 7311343320982398995, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311343320982398995, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a013d04dac88dad469ce2b3c0fdb7abc, type: 2}
-    - target: {fileID: 8054719460488863471, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1927273192739970689, guid: e60f330f1dbfd63488c1effba5c8fd62, type: 3}
     - target: {fileID: 8917619337723974576, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.26373
