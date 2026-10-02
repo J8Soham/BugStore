@@ -55,18 +55,24 @@ public class BugSpawner : MonoBehaviour
         for (int i = 0; i < m_waves.Count; i++)
         {
             p_currentWaveIndex = i;
-            Debug.Log(p_currentWaveIndex + " : " + i + " : " + m_waves.Count);
             cc_hud.UpdateWave((p_currentWaveIndex + 1));
-            BugGroup[] bugGroup = m_waves.BugGroup;
+            BugGroup[] vaildBugGroup = new BugGroup[];
+            int[] weightsBug = new int[];
+            int totalWeight = 0;
+            foreach (BugGroup bug in m_waves.BugGroup){
+                if (bug.FirstSpawnWave <= i) {
+                    vaildBugGroup.add(bug);
+                    vaildBugGroup.add(bug.Rarity);
+                    totalWeight += bug.Rarity;
+                }
+            }
             int count = 0;
             while (count < m_waves.MaxBugs){
-                foreach (BugGroup bug in bugGroup)
+                foreach (BugGroup bug in vaildBugGroup)
                 {
-                    if (bug.FirstSpawnWave <= i) {
-                        count += 1;
-                        SpawnBug(bug.BugPrefab);
-                        yield return new WaitForSeconds(m_waves.IntervalBetweenSpawn);
-                    }
+                    count += 1;
+                    SpawnBug(bug.BugPrefab);
+                    yield return new WaitForSeconds(m_waves.IntervalBetweenSpawn);
                 }
             }
             yield return new WaitForSeconds((m_waves.IntervalBetweenSpawn * 2));
