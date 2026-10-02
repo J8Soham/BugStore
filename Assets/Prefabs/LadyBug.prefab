@@ -191,7 +191,7 @@ MonoBehaviour:
   m_hoverDuration: 3
   m_hoverSpeed: 4
   m_hoverWidth: 8
-  audioFly: {fileID: 8300000, guid: 05ca6e1f8852cc44b9d0fffbd9576368, type: 3}
+  m_audioFly: {fileID: 8300000, guid: 05ca6e1f8852cc44b9d0fffbd9576368, type: 3}
 --- !u!95 &5637525743562738983
 Animator:
   serializedVersion: 7
