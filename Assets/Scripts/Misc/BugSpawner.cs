@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BugSpawner : MonoBehaviour
 {
@@ -56,24 +57,35 @@ public class BugSpawner : MonoBehaviour
         {
             p_currentWaveIndex = i;
             cc_hud.UpdateWave((p_currentWaveIndex + 1));
-            BugGroup[] vaildBugGroup = new BugGroup[];
-            int[] weightsBug = new int[];
+            List<BugGroup> vaildBugGroup = new List<BugGroup>();
+            Dictionary<string, int> bugCounts = new Dictionary<string, int>();
             int totalWeight = 0;
             foreach (BugGroup bug in m_waves.BugGroup){
+                bugCounts.Add(bug.BugName, 0);
                 if (bug.FirstSpawnWave <= i) {
-                    vaildBugGroup.add(bug);
-                    vaildBugGroup.add(bug.Rarity);
+                    vaildBugGroup.Add(bug);
                     totalWeight += bug.Rarity;
                 }
             }
-            int count = 0;
-            while (count < m_waves.MaxBugs){
+            List<GameObject> bugsToSpawn = new List<GameObject>();
+            int increaseBugs = m_waves.WaveBugsIncrease * p_currentWaveIndex;
+            for (int count = 0; count < (m_waves.StartBugs + increaseBugs); count++){
+                int roll = Random.Range(0, totalWeight);
+                int cummulate = 0;
                 foreach (BugGroup bug in vaildBugGroup)
                 {
-                    count += 1;
-                    SpawnBug(bug.BugPrefab);
-                    yield return new WaitForSeconds(m_waves.IntervalBetweenSpawn);
+                    cummulate += bug.Rarity;
+                    if (roll < cummulate){
+                        bugsToSpawn.Add(bug.BugPrefab);
+                        bugCounts[bug.BugName]++;
+                        break;
+                    }
                 }
+            }
+            cc_hud.UpdateBugs(bugCounts["Larva"], bugCounts["LadyBug"], bugCounts["Cricket"]);
+            foreach (GameObject bugPrefab in bugsToSpawn){
+                SpawnBug(bugPrefab);
+                yield return new WaitForSeconds(m_waves.IntervalBetweenSpawn);
             }
             yield return new WaitForSeconds((m_waves.IntervalBetweenSpawn * 2));
         }

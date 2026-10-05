@@ -113,12 +113,6 @@ public class Hand : MonoBehaviour
     #region Helpers
     private void UpdateSprite()
     {
-        /* Commented out in favor for Animator
-        if (m_spriteRenderer != null)
-        {
-            m_spriteRenderer.sprite = IsGrabbing ? m_closedHandSprite : m_openHandSprite;
-        }
-        */
         m_anmr.SetBool("isGrabbing",IsGrabbing);
         m_anmr.SetBool("isStunned",IsStunned);
     }
@@ -127,7 +121,6 @@ public class Hand : MonoBehaviour
     #region Stun Mechanics
     public void StunHand(float duration)
     {
-        Debug.Log("Stun Works: " + duration);
         if (!IsStunned)
         {
             StartCoroutine(StunRoutine(duration));

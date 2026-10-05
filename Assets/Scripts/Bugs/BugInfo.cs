@@ -25,9 +25,6 @@ public class BugInfo
     [SerializeField] 
     [Tooltip("Damage done when dropped.")]
     public int m_damagesOnDrop;
-    [SerializeField] 
-    [Tooltip("Rarity of the bug (on scale of 1-10)")]
-    public int m_rarity;
     
     public string BugName {
         get {
@@ -62,11 +59,6 @@ public class BugInfo
     public int DamageOnDrop {
         get {
             return m_damagesOnDrop;  
-        } 
-    }
-    public int Rarity {
-        get {
-            return m_rarity;  
         } 
     }
     #endregion

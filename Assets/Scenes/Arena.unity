@@ -292,6 +292,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HUDController
   m_scoreText: {fileID: 443472190}
   m_waveText: {fileID: 336448202}
+  m_larvaText: {fileID: 1373426440}
+  m_ladyBugText: {fileID: 1144576839}
+  m_cricketText: {fileID: 449410603}
   m_heartImages:
   - {fileID: 734406198}
   - {fileID: 1798780513}
@@ -1798,14 +1801,18 @@ MonoBehaviour:
     - m_bugName: Larva
       m_bugGO: {fileID: 2900479410593487584, guid: 440591f4a0c904db2adfb6c11baf5d3a, type: 3}
       m_firstSpawnWave: 0
+      m_rarity: 6
     - m_bugName: LadyBug
       m_bugGO: {fileID: 2900479410593487584, guid: caa43e72cde144034ac98137fd8b6cae, type: 3}
       m_firstSpawnWave: 1
+      m_rarity: 2
     - m_bugName: Cricket
       m_bugGO: {fileID: 2900479410593487584, guid: 8fd96310aff6e4f0fb5b7854e89081c2, type: 3}
-      m_firstSpawnWave: 0
+      m_firstSpawnWave: 2
+      m_rarity: 2
     m_intervalBetweenSpawn: 4
-    m_maxBugs: 4
+    m_startBugs: 3
+    m_waveBugsIncrease: 1
 --- !u!4 &1289196713
 Transform:
   m_ObjectHideFlags: 0

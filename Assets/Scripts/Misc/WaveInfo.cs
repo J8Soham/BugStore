@@ -18,7 +18,11 @@ public class WaveInfo
 
     [SerializeField] 
     [Tooltip("Max number of bugs.")]
-    private int m_maxBugs;
+    private int m_startBugs;
+
+    [SerializeField] 
+    [Tooltip("Bugs increased per wave.")]
+    private int m_waveBugsIncrease;
     
     public int Count {
         get {
@@ -38,9 +42,15 @@ public class WaveInfo
         } 
     }
 
-    public int MaxBugs {
+    public int StartBugs {
         get {
-            return m_maxBugs;  
+            return m_startBugs;  
+        } 
+    }
+
+    public int WaveBugsIncrease {
+        get {
+            return m_waveBugsIncrease;  
         } 
     }
     #endregion
@@ -62,6 +72,10 @@ public class BugGroup
     [Tooltip("When to first spawn.")]
     private int m_firstSpawnWave;
     
+    [SerializeField] 
+    [Tooltip("Rarity of the bug (on scale of 1-10)")]
+    public int m_rarity;
+
     public string BugName {
         get {
             return m_bugName;  
@@ -77,6 +91,12 @@ public class BugGroup
     public int FirstSpawnWave {
         get {
             return m_firstSpawnWave;  
+        } 
+    }
+    
+    public int Rarity {
+        get {
+            return m_rarity;  
         } 
     }
     #endregion
