@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BugSpawner : MonoBehaviour
 {
@@ -55,19 +56,36 @@ public class BugSpawner : MonoBehaviour
         for (int i = 0; i < m_waves.Count; i++)
         {
             p_currentWaveIndex = i;
-            Debug.Log(p_currentWaveIndex + " : " + i + " : " + m_waves.Count);
             cc_hud.UpdateWave((p_currentWaveIndex + 1));
-            BugGroup[] bugGroup = m_waves.BugGroup;
-            int count = 0;
-            while (count < m_waves.MaxBugs){
-                foreach (BugGroup bug in bugGroup)
+            List<BugGroup> vaildBugGroup = new List<BugGroup>();
+            Dictionary<string, int> bugCounts = new Dictionary<string, int>();
+            int totalWeight = 0;
+            foreach (BugGroup bug in m_waves.BugGroup){
+                bugCounts.Add(bug.BugName, 0);
+                if (bug.FirstSpawnWave <= i) {
+                    vaildBugGroup.Add(bug);
+                    totalWeight += bug.Rarity;
+                }
+            }
+            List<GameObject> bugsToSpawn = new List<GameObject>();
+            int increaseBugs = m_waves.WaveBugsIncrease * p_currentWaveIndex;
+            for (int count = 0; count < (m_waves.StartBugs + increaseBugs); count++){
+                int roll = Random.Range(0, totalWeight);
+                int cummulate = 0;
+                foreach (BugGroup bug in vaildBugGroup)
                 {
-                    if (bug.FirstSpawnWave <= i) {
-                        count += 1;
-                        SpawnBug(bug.BugPrefab);
-                        yield return new WaitForSeconds(m_waves.IntervalBetweenSpawn);
+                    cummulate += bug.Rarity;
+                    if (roll < cummulate){
+                        bugsToSpawn.Add(bug.BugPrefab);
+                        bugCounts[bug.BugName]++;
+                        break;
                     }
                 }
+            }
+            cc_hud.UpdateBugs(bugCounts["Larva"], bugCounts["LadyBug"], bugCounts["Cricket"]);
+            foreach (GameObject bugPrefab in bugsToSpawn){
+                SpawnBug(bugPrefab);
+                yield return new WaitForSeconds(m_waves.IntervalBetweenSpawn);
             }
             yield return new WaitForSeconds((m_waves.IntervalBetweenSpawn * 2));
         }

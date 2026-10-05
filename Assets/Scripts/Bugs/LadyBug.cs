@@ -18,6 +18,12 @@ public class LadyBug : Bug
     
     #endregion
 
+    #region SFX
+    [SerializeField]
+    [Tooltip("The sound to play when flying")]
+    private AudioClip m_audioFly;
+    #endregion
+
     #region Catch Mechanics
     public override void OnReleased(Hand releasingHand)
     {
@@ -28,6 +34,7 @@ public class LadyBug : Bug
     private IEnumerator HoverRoutine()
     {
         yield return new WaitForSeconds(0.5f);
+        SFXManager.Instance.PlaySoundClip(m_audioFly, transform.position, 0.1f);
         float originalGravity = m_rb.gravityScale;
         m_rb.gravityScale = 0.1f;
 

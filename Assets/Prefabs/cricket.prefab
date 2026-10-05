@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -597684782313334396, guid: 9e344c43795b3a64a99b091364a044a4, type: 3}
+  m_Sprite: {fileID: -1927273192739970689, guid: e60f330f1dbfd63488c1effba5c8fd62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,7 +133,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4603374, y: 1.94}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     m_pointValue: 3
     m_launchForce: 10
     m_isHazardous: 1
-    m_stunDuration: 10000
+    m_stunDuration: 3
     m_damagesOnDrop: 0
 --- !u!95 &7311343320982398995
 Animator:
@@ -196,9 +196,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2900479410593487584}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b3b4b123cb94c7a4696d61e799acda77, type: 2}
+  m_Controller: {fileID: 9100000, guid: a013d04dac88dad469ce2b3c0fdb7abc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
